@@ -8,7 +8,7 @@ export default function Home() {
 
 	return (
 		<main className="container min-h-screen lg:flex-row sx:flex-col">
-			<div className="w-[70%] flex flex-col gap-8">
+			<div className="w-[65%] flex flex-col gap-6">
 				<h1 className="text-4xl font-bold">Desserts</h1>
 				<div className="w-full flex justify-between gap-4 flex-wrap">
 					{data.map(dessert => (
@@ -18,7 +18,7 @@ export default function Home() {
 					))}
 				</div>
 			</div>
-			<div className="w-[30%] min-h-screen p-2">
+			<div className="w-[35%] min-h-screen p-2">
 				<Cart />
 			</div>
 		</main>

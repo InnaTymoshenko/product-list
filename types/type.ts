@@ -11,3 +11,10 @@ interface IDessert {
 	price: number
 	image: Image
 }
+
+interface IProductCart {
+	product: IDessert
+	id: string
+	count: number
+	total: number
+}

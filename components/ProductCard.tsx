@@ -13,6 +13,8 @@ import { Icons } from './ui/Icons'
 import { useState } from 'react'
 import Decrement from './Icons/Decrement'
 import Increment from './Icons/Increment'
+import { useProductCart } from '@/store/store'
+import Add from './Icons/Add'
 
 type DessertProps = {
 	dessert: IDessert
@@ -21,15 +23,12 @@ type DessertProps = {
 const ProductCard = ({ dessert }: DessertProps) => {
 	const [cart, setCart] = useState(false)
 	const [count, setCount] = useState(1)
+	const { addCart, productCart } = useProductCart()
 
-	const handleAddToCart=(dessert:IDessert, count:number)=>{
-		const newDessert ={
-			name:dessert.name,
-			price:dessert.price,
-			count:count,
-			total:''
-		}
+	const handleAddToCart = (value: string) => {
+		addCart(value)
 		setCart(true)
+		// console.log(dessert.name)
 	}
 
 	const handleMinusCount = () => {
@@ -51,34 +50,34 @@ const ProductCard = ({ dessert }: DessertProps) => {
 					height={250}
 					className={`rounded border-[3px] ${cart ? 'border-red-100' : 'border-transparent'} `}
 				/>
-				{cart ? (
+				{cart && productCart.length !== 0 ? (
 					<div className="button bg-red-100 px-4 py-3">
 						<div className="flex justify-between items-center gap-8 ">
 							<div
 								onClick={() => handleMinusCount()}
-								className="icon text-primary hover:bg-primary hover:text-red-100 cursor-pointer"
+								className="icon border-primary text-primary hover:bg-primary hover:text-red-100 cursor-pointer"
 							>
 								<Decrement />
 							</div>
 							<span className="text-primary">{count}</span>
 							<div
 								onClick={() => setCount(count + 1)}
-								className="icon text-primary hover:bg-primary hover:text-red-100 cursor-pointer"
+								className="icon border-primary text-primary hover:bg-primary hover:text-red-100 cursor-pointer"
 							>
 								<Increment />
 							</div>
 						</div>
 					</div>
 				) : (
-					<Button onClick={() => handleAddToCart(dessert, count)} className={`button bg-primary px-6 py-2 `}>
-						<Icons.add className="w-6 h-6" />
-						<span>Add to Cart</span>
+					<Button onClick={() => handleAddToCart(dessert.name)} className={`button bg-primary px-6 py-2 `}>
+						<Add />
+						<span className="font-bold">Add to Cart</span>
 					</Button>
 				)}
 			</div>
 			<div>
 				<span className="text-md text-rose-500">{dessert.category}</span>
-				<p className="font-bold">{dessert.name}</p>
+				<p className="font-bold ">{dessert.name}</p>
 				<span className="text-red-100 font-semibold">{`$${dessert.price.toFixed(2)}`}</span>
 			</div>
 		</div>

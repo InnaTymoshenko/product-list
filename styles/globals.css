@@ -14,12 +14,12 @@
 
 @layer components {
 	.container {
-		@apply w-full max-w-[1440px] px-16 py-24 flex gap-8;
+		@apply w-full max-w-[1440px] px-16 py-24 flex gap-4;
 	}
 	.button {
 		@apply border border-rose-500 flex justify-between items-center gap-1 text-md font-semibold rounded-full absolute z-10 bottom-[-5%] left-[20%];
 	}
 	.icon {
-		@apply w-[20px] h-[20px] flex justify-center items-center border-2 border-primary rounded-full;
+		@apply w-[20px] h-[20px] flex justify-center items-center border-2 rounded-full;
 	}
 }
