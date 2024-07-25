@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--color-white: 255, 255, 255;
+}
+
+@layer base {
+	body {
+		@apply m-0 p-0 bg-rose-50 text-rose-900 text-lg;
+	}
+}
+
+@layer components {
+	.container {
+		@apply w-full max-w-[1440px] px-16 py-24 flex gap-8;
+	}
+	.button {
+		@apply border border-rose-500 flex justify-between items-center gap-1 text-md font-semibold rounded-full absolute z-10 bottom-[-5%] left-[20%];
+	}
+	.icon {
+		@apply w-[20px] h-[20px] flex justify-center items-center border-2 border-primary rounded-full;
+	}
+}
