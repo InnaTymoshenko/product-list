@@ -1,6 +1,16 @@
-const EmptyCart = () => {
+interface IconProps extends React.HTMLAttributes<SVGElement> {}
+
+const EmptyCart = ({ className, ...props }: IconProps) => {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="none" viewBox="0 0 128 128">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="128"
+			height="128"
+			fill="none"
+			viewBox="0 0 128 128"
+			className={className}
+			{...props}
+		>
 			<path
 				fill="#260F08"
 				d="M8.436 110.406c0 1.061 4.636 2.079 12.887 2.829 8.252.75 19.444 1.171 31.113 1.171 11.67 0 22.861-.421 31.113-1.171 8.251-.75 12.887-1.768 12.887-2.829 0-1.061-4.636-2.078-12.887-2.828-8.252-.75-19.443-1.172-31.113-1.172-11.67 0-22.861.422-31.113 1.172-8.251.75-12.887 1.767-12.887 2.828Z"
