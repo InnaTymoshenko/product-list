@@ -20,12 +20,10 @@ const ProductCount = ({ dessert }: ProductCountProps) => {
 		}
 	}
 
-	// console.log(dessert.count)
-
 	return (
 		<>
 			{dessert && (
-				<div className="button bg-red-100 px-4 py-3">
+				<div className="button bg-red-100 lg:px-4 sx:px-8 py-3">
 					<div className="flex justify-between items-center gap-8 ">
 						<div
 							onClick={() => handleMinusCount(dessert)}

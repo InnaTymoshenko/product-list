@@ -5,7 +5,7 @@ export const newProduct = (product: IDessert) => {
 		...product,
 		id: uuidv4(),
 		count: 0,
-		total: product.price,
+		total: 0,
 		checked: false
 	}
 }

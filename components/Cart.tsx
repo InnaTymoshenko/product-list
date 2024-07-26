@@ -55,7 +55,7 @@ const Cart = ({ modal, setModal }: CartProps) => {
 							<span className="text-rose-500 ">Order Total</span>
 							<strong className="text-rose-900 text-2xl">{`$${totalPrice.toFixed(2)}`}</strong>
 						</div>
-						<div className="w-full flex gap-2 justify-center items-center text-md bg-rose-50 rounded-md p-4">
+						<div className="w-full flex gap-2 justify-center items-center lg:text-md sx:text-sm bg-rose-50 rounded-md p-4">
 							<Carbon />
 							This is a <strong>carbon-neutral</strong> delivery
 						</div>

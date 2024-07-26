@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import Image from 'next/image'
@@ -18,20 +19,25 @@ const ProductCard = ({ dessert }: DessertProps) => {
 	}
 
 	return (
-		<div className="w-full flex flex-col p-2 gap-8">
-			<div className="relative">
-				<Image
+		<div className="sx:w-full lg:w-[45%] xl:w-[30%] flex flex-col p-2 gap-8">
+			<div className="relative flex justify-center items-center">
+				<img
+					src={`/${dessert.image.tablet}`}
+					alt={dessert.name}
+					className={`sx:w-auto rounded  ${dessert.checked ? 'border-red-100 border-[3px]' : 'border-transparent'} `}
+				/>
+				{/* <Image
 					priority
 					src={`/${dessert.image.tablet}`}
 					alt={dessert.name}
-					width={270}
-					height={270}
-					className={`rounded border-[3px] ${dessert.checked ? 'border-red-100' : 'border-transparent'} `}
-				/>
+					width={250}
+					height={250}
+					className={`sx:w-auto rounded border-[3px] ${dessert.checked ? 'border-red-100' : 'border-transparent'} `}
+				/> */}
 				{dessert.checked ? (
 					<ProductCount dessert={dessert} />
 				) : (
-					<Button onClick={() => handleAddToCart(dessert.id)} className={`button bg-primary px-6 py-3 `}>
+					<Button onClick={() => handleAddToCart(dessert.id)} className={`button bg-primary xl:px-6 sx:px-12 py-3 `}>
 						<Add />
 						<span className="font-bold">Add to Cart</span>
 					</Button>
