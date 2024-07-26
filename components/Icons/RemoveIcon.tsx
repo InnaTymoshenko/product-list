@@ -1,6 +1,6 @@
 interface IconProps extends React.HTMLAttributes<SVGElement> {}
 
-const Remove = ({ className, ...props }: IconProps) => {
+const RemoveIcon = ({ className, ...props }: IconProps) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -19,4 +19,4 @@ const Remove = ({ className, ...props }: IconProps) => {
 	)
 }
 
-export default Remove
+export default RemoveIcon

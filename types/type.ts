@@ -13,8 +13,12 @@ interface IDessert {
 }
 
 interface IProductCart {
-	product: IDessert
+	name: string
+	category: string
+	price: number
+	image: Image
 	id: string
 	count: number
 	total: number
+	checked: boolean
 }

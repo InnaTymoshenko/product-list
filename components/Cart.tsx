@@ -4,18 +4,25 @@ import EmptyCart from './Icons/EmptyCart'
 import { useProductCart } from '@/store/store'
 import Button from './ui/Button'
 import Carbon from './Icons/Carbon'
-import Remove from './Icons/remove'
+import Remove from './Icons/RemoveIcon'
 
-type Props = {}
+const Cart = () => {
+	const { productCart, deleteProduct } = useProductCart()
 
-const Cart = (props: Props) => {
-	const { productCart } = useProductCart()
-	console.log(productCart)
+	const cartLength = productCart.reduce((acc, product) => {
+		return acc + product.count
+	}, 0)
+
+	const totalPrice = productCart.reduce((acc, product) => {
+		return acc + product.total
+	}, 0)
+
+	// console.log(productCart)
 
 	return (
 		<div className="w-full flex flex-col gap-8 py-6 px-4 bg-primary">
 			<h2 className="text-2xl text-red-100 font-bold">
-				Your Cart <span>{`(0)`}</span>
+				Your Cart <span>{`(${cartLength})`}</span>
 			</h2>
 			<div>
 				<div className="w-full text-rose-500 text-lg font-semibold p-4 flex flex-col justify-between items-center gap-4">
@@ -24,24 +31,27 @@ const Cart = (props: Props) => {
 							{productCart.map(product => (
 								<div
 									key={product.id}
-									className="w-full min-h-16 border-b-2 border-b-rose-100 flex justify-between items-center py-2"
+									className="w-full min-h-16 border-b-2 border-b-rose-100 flex justify-between items-center py-4"
 								>
 									<div className="w-full flex flex-col items-start justify-between gap-2">
-										<strong className="text-rose-900">{product.product.name}</strong>
+										<strong className="text-rose-900">{product.name}</strong>
 										<div className="flex gap-4 justify-start items-center text-rose-500">
 											<span className="text-red-100">{`${product.count}x`}</span>
-											<span>{`@ $${product.product.price.toFixed(2)}`}</span>
+											<span>{`@ $${product.price.toFixed(2)}`}</span>
 											<span>{`$${product.total.toFixed(2)}`}</span>
 										</div>
 									</div>
-									<div className="icon border-rose-300 hover:bg-red-100 hover:text-primary cursor-pointer">
+									<div
+										className="icon border-rose-300 hover:bg-red-100 hover:text-primary cursor-pointer"
+										onClick={() => deleteProduct(product.id)}
+									>
 										<Remove />
 									</div>
 								</div>
 							))}
 							<div className="w-full h-16 flex justify-between items-center">
 								<span className="text-rose-500 ">Order Total</span>
-								<strong className="text-rose-900 text-2xl">{`$46.50`}</strong>
+								<strong className="text-rose-900 text-2xl">{`$${totalPrice.toFixed(2)}`}</strong>
 							</div>
 							<div className="w-full flex gap-2 justify-center items-center bg-rose-50 rounded-md py-4 px-8">
 								<Carbon />
