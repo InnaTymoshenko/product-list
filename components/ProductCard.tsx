@@ -2,17 +2,6 @@
 
 import Image from 'next/image'
 import Button from './ui/Button'
-
-// import carbon from '@/public/assets/images/icon-carbon-neutral.svg'
-// import decrement from '@/public/assets/images/icon-decrement-quantity.svg'
-// import increment from '@/public/assets/images/icon-increment-quantity.svg'
-// import order from '@/public/assets/images/icon-order-confirmed.svg'
-// import remove from '@/public/assets/images/icon-remove-item.svg'
-// import empty from '@/public/assets/images/illustration-empty-cart.svg'
-// import { Icons } from './ui/Icons'
-import { useEffect, useState } from 'react'
-// import Decrement from './Icons/Decrement'
-// import Increment from './Icons/Increment'
 import { useProductCart } from '@/store/store'
 import Add from './Icons/Add'
 import ProductCount from './ProductCount'
@@ -22,16 +11,11 @@ type DessertProps = {
 }
 
 const ProductCard = ({ dessert }: DessertProps) => {
-	// const [cart, setCart] = useState(false)
 	const { addCart } = useProductCart()
 
 	const handleAddToCart = (id: string) => {
 		addCart(id)
-		// setCart(true)
-		// console.log(obj.name)
 	}
-
-	// console.log(dessert)
 
 	return (
 		<div className="w-full flex flex-col p-2 gap-8">
