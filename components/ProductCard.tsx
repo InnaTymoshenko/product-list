@@ -26,14 +26,6 @@ const ProductCard = ({ dessert }: DessertProps) => {
 					alt={dessert.name}
 					className={`sx:w-auto rounded  ${dessert.checked ? 'border-red-100 border-[3px]' : 'border-transparent'} `}
 				/>
-				{/* <Image
-					priority
-					src={`/${dessert.image.tablet}`}
-					alt={dessert.name}
-					width={250}
-					height={250}
-					className={`sx:w-auto rounded border-[3px] ${dessert.checked ? 'border-red-100' : 'border-transparent'} `}
-				/> */}
 				{dessert.checked ? (
 					<ProductCount dessert={dessert} />
 				) : (
