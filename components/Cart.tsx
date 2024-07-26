@@ -60,7 +60,7 @@ const Cart = ({ modal, setModal }: CartProps) => {
 							This is a <strong>carbon-neutral</strong> delivery
 						</div>
 						<Button
-							className="w-full py-4 px-8 bg-red-100 hover:bg-rose-500 rounded-full text-primary text-xl font-light"
+							className="w-full py-4 px-8 bg-red-100 transition-all hover:bg-rose-500 rounded-full text-primary text-xl font-light"
 							onClick={() => setModal(!modal)}
 						>
 							Confirm Order

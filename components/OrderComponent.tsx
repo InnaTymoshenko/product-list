@@ -69,7 +69,7 @@ const OrderComponent = ({ productCart, modal, setModal }: OrderProps) => {
 					<strong className="text-rose-900 text-2xl">{`$${totalPrice.toFixed(2)}`}</strong>
 				</div>
 				<Button
-					className="w-full py-4 px-8 bg-red-100 hover:bg-rose-500 rounded-full text-primary text-xl font-light"
+					className="w-full py-4 px-8 bg-red-100 transition-all hover:bg-rose-500 rounded-full text-primary text-xl font-light"
 					onClick={() => handleClearCart()}
 				>
 					Start New Order
