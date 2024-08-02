@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+
 import React from 'react'
-import Image from 'next/image'
 import Button from './ui/Button'
 import Order from './Icons/Order'
 import { useProductCart } from '@/store/store'
@@ -34,40 +35,36 @@ const OrderComponent = ({ productCart, modal, setModal }: OrderProps) => {
 					<h2 className="text-4xl font-bold mb-2">Order Confirmed</h2>
 					<p className="text-rose-500 font-semibold">We hope you enjoy your food!</p>
 				</div>
-				<div className="w-full bg-rose-50 px-4 font-semibold">
-					{productCart.map(product => (
-						<div
-							key={product.id}
-							className="w-full min-h-16 border-b-2 border-b-rose-100 flex gap-3 justify-between items-center py-4"
-						>
-							<div className="w-full flex gap-4 justify-start">
-								<div className="w-[20%] ">
-									<Image
-										priority
-										src={`/${product.image.tablet}`}
-										alt={product.name}
-										width={50}
-										height={50}
-										className="w-auto rounded-lg"
-									/>
-								</div>
-								<div className="w-[80%] flex flex-col items-start justify-between gap-2">
-									<strong className="text-rose-900">{product.name}</strong>
-									<div className="flex gap-4 justify-start items-center text-rose-500">
-										<span className="text-red-100">{`${product.count}x`}</span>
-										<span>{`@ $${product.price.toFixed(2)}`}</span>
+				<div className="flex flex-col bg-rose-50 px-4">
+					<div className="w-full px-4 font-semibold">
+						{productCart.map(product => (
+							<div
+								key={product.id}
+								className="w-full min-h-16 border-b-2 border-b-rose-100 flex gap-3 justify-between items-center py-4"
+							>
+								<div className="w-full flex gap-4 justify-start">
+									<div className="w-[20%] ">
+										<img src={`/${product.image.tablet}`} alt={product.name} className="w-auto rounded-lg" />
+									</div>
+									<div className="w-[80%] flex flex-col items-start justify-between gap-2">
+										<strong className="text-rose-900">{product.name}</strong>
+										<div className="flex gap-4 justify-start items-center text-rose-500">
+											<span className="text-red-100">{`${product.count}x`}</span>
+											<span>{`@ $${product.price.toFixed(2)}`}</span>
+										</div>
 									</div>
 								</div>
-							</div>
 
-							<span>{`$${product.total.toFixed(2)}`}</span>
-						</div>
-					))}
+								<span>{`$${product.total.toFixed(2)}`}</span>
+							</div>
+						))}
+					</div>
+					<div className="w-full h-16 flex justify-between items-center font-semibold">
+						<span className="text-rose-500 ">Order Total</span>
+						<strong className="text-rose-900 text-2xl">{`$${totalPrice.toFixed(2)}`}</strong>
+					</div>
 				</div>
-				<div className="w-full h-16 flex justify-between items-center font-semibold">
-					<span className="text-rose-500 ">Order Total</span>
-					<strong className="text-rose-900 text-2xl">{`$${totalPrice.toFixed(2)}`}</strong>
-				</div>
+
 				<Button
 					className="w-full py-4 px-8 bg-red-100 transition-all hover:bg-rose-500 rounded-full text-primary text-xl font-light"
 					onClick={() => handleClearCart()}
