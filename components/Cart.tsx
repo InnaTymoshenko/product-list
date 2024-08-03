@@ -22,6 +22,11 @@ const Cart = ({ modal, setModal }: CartProps) => {
 		return acc + product.total
 	}, 0)
 
+	const handleCloseCart = () => {
+		setModal(!modal)
+		window.scrollTo(0, 100)
+	}
+
 	return (
 		<div className="w-full flex flex-col gap-8 py-6 px-4 bg-primary">
 			<h2 className="text-2xl text-red-100 font-bold">
@@ -61,7 +66,7 @@ const Cart = ({ modal, setModal }: CartProps) => {
 						</div>
 						<Button
 							className="w-full py-4 px-8 bg-red-100 transition-all hover:bg-rose-500 rounded-full text-primary text-xl font-light"
-							onClick={() => setModal(!modal)}
+							onClick={() => handleCloseCart()}
 						>
 							Confirm Order
 						</Button>

@@ -29,25 +29,25 @@ const OrderComponent = ({ productCart, modal, setModal }: OrderProps) => {
 			className="w-full h-full absolute z-10 left-0 bottom-0 bg-rose-900/50 flex justify-center 2xl:items-center sx:items-start 2xl:pt-0 sx:pt-40"
 			onClick={() => handleClearCart()}
 		>
-			<div className="lg:w-[40%] sx:w-full bg-primary p-8 rounded-lg flex flex-col gap-8">
+			<div className="lg:w-[40%] sx:w-full bg-primary lg:p-8 sx:px-4 sx:py-8 rounded-lg flex flex-col gap-8">
 				<Order />
 				<div className="w-full text-left">
 					<h2 className="text-4xl font-bold mb-2">Order Confirmed</h2>
 					<p className="text-rose-500 font-semibold">We hope you enjoy your food!</p>
 				</div>
-				<div className="flex flex-col bg-rose-50 px-4">
-					<div className="w-full px-4 font-semibold">
+				<div className="flex flex-col bg-rose-50 lg:px-4 sx:px-0">
+					<div className="w-full lg:px-4 sx:px-2 font-semibold">
 						{productCart.map(product => (
 							<div
 								key={product.id}
 								className="w-full min-h-16 border-b-2 border-b-rose-100 flex gap-3 justify-between items-center py-4"
 							>
 								<div className="w-full flex gap-4 justify-start">
-									<div className="w-[20%] ">
+									<div className="lg:w-[20%] sx:w-[30%] ">
 										<img src={`/${product.image.tablet}`} alt={product.name} className="w-auto rounded-lg" />
 									</div>
 									<div className="w-[80%] flex flex-col items-start justify-between gap-2">
-										<strong className="text-rose-900">{product.name}</strong>
+										<strong className="text-rose-900 sx:text-md">{product.name}</strong>
 										<div className="flex gap-4 justify-start items-center text-rose-500">
 											<span className="text-red-100">{`${product.count}x`}</span>
 											<span>{`@ $${product.price.toFixed(2)}`}</span>
