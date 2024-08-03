@@ -24,7 +24,7 @@ const Cart = ({ modal, setModal }: CartProps) => {
 
 	const handleCloseCart = () => {
 		setModal(!modal)
-		window.scrollTo(0, 100)
+		window.scrollTo(0, 0)
 	}
 
 	return (
