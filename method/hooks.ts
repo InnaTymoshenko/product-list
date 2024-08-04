@@ -21,15 +21,15 @@ export const useScreenSize = () => {
 			setScreenSize(getScreenSize())
 		}
 
-		window.addEventListener('resize', handleResize)
-		return () => window.removeEventListener('resize', handleResize)
+		global.addEventListener('resize', handleResize)
+		return () => global.removeEventListener('resize', handleResize)
 	}, [])
 
 	return screenSize
 }
 
 const getScreenSize = (): string => {
-	const width = window.innerWidth
+	const width = global.innerWidth
 	if (width <= BREAKPOINTS.MOBILE_MAX) {
 		return SCREEN_SIZES.MOBILE
 	} else if (width >= BREAKPOINTS.TABLET_MIN && width <= BREAKPOINTS.TABLET_MAX) {
