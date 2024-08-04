@@ -17,7 +17,7 @@
 		@apply w-full max-w-[1440px] lg:px-16 sx:px-8 py-24 flex gap-4;
 	}
 	.button {
-		@apply border border-rose-500 flex justify-between items-center gap-1 text-md font-semibold rounded-full absolute z-10 bottom-[-5%] sx:left-[20%] md:left-[30%] xl:left-[10%] 2xl:left-[20%];
+		@apply border border-rose-500 flex justify-between items-center gap-1 text-md font-semibold rounded-full;
 	}
 	.icon {
 		@apply w-[20px] h-[20px] flex justify-center items-center border-2 rounded-full;

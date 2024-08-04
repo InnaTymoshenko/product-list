@@ -21,7 +21,7 @@ const ProductCount = ({ dessert }: ProductCountProps) => {
 	}
 
 	return (
-		<>
+		<div className="w-full absolute z-10 bottom-[-6%] left-0 flex justify-center items-center">
 			{dessert && (
 				<div className="button bg-red-100 lg:px-4 sx:px-8 py-3">
 					<div className="flex justify-between items-center gap-8 ">
@@ -41,7 +41,7 @@ const ProductCount = ({ dessert }: ProductCountProps) => {
 					</div>
 				</div>
 			)}
-		</>
+		</div>
 	)
 }
 
